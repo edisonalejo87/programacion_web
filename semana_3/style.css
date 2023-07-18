@@ -1,0 +1,28 @@
+*
+{
+    margin: o;
+    padding: 0;
+}
+.container{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    border: 1px dotted black;
+    display: flex;
+    justify-content: center
+    align-items: space-between;
+}
+
+h2 + p{
+    color: red;
+
+}
+
+h2 ~ p{
+    color: red;
+
+}
+
+div > p {
+    color:red
+}
