@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Aprobación de la materia x</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script>
+ 
+function algoritmo()
+{
+    let calificacion_1, calificacion_2, calificacion_3, promedio;
+    calificacion_1 = parseFloat (document.formulario1.calificacion_1.value);
+    calificacion_2 = parseFloat (document.formulario1.calificacion_2.value);
+    calificacion_3 = parseFloat (document.formulario1.calificacion_3.value);
+    promedio=(calificacion_1+calificacion_2+calificacion_3)/3;
+    if(promedio>=7)
+        alert('Aprobado');
+    else
+        alert('Reprobado');
+    document.formulario1.promedio.value = promedio;
+}
+ 
+        </script>
+    </head>
+    <body>
+        <form name="formulario1">
+            <table style="text-align: left; margin-left: auto; margin-right: auto;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="calificacion_1">Ingresa el valor de calificacion 1:</label>
+                        </td>
+                        <td>
+                            <input name="calificacion_1" required="required" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="calificacion_2">Ingresa el valor de calificacion 2:</label>
+                        </td>
+                        <td>
+                            <input name="calificacion_2" required="required" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="calificacion_3">Ingresa el valor de calificacion 3:</label>
+                        </td>
+                        <td>
+                            <input name="calificacion_3" required="required" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2" rowspan="1">
+                            <input value="Procesar" type="button" onclick="algoritmo();" />
+                            <input type="reset" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="promedio">Valor de promedio:</label>
+                        </td>
+                        <td>
+                            <input name="promedio" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <center>
+        <h2>INSTITUTO TECNOLOGICO INTERNACIONAL UNIVERSITARIO</h1>
+        <h3>REDES Y TELECOMUNICACIONES</h2>
+        <h3>PROGRAMACION WEB - EXAMEN PARCIAL</h2>
+        <h4>Edison Alejandro Guachan Iñiguez</h2>
+        <h4>Instruccion: Realizar el codigo que permita visualizar si al ingresar las notas de un estudiante y verificadr si aprueba, pierde o se exonera el parcial</h3>
+    </center>
+    
+    
+    </div>
+    <h2>Notas primer parcial</h2>
+
+    <form action="">
+        <label>
+            Ingrese Nota 1 
+            <input type="text" name="" id="txt_nota1">
+        </label>
+        <label>
+            Nota 2
+            <input type="text" name="" id="txt_nota2">
+        </label>
+        <label>
+            Nota 3
+            <input type="text" id="txt_nota3">
+
+        </label>
+        <!-- <button type="submit"  id="enviar"> Enviar </button>  -->
+    </form>
+    <h5 class="eventos">Promedio del primer parcial es: </h5>
+    <p id="res1p"></p>
+
+    <h2 class="eventos">Notas sengundo parcial</h2>
+
+
+    </p>
+        <form action="">
+            <label>
+                Ingrese Nota 1 
+                <input type="text" name="" id="txt_nota1p2">
+            </label>
+            <label>
+                Nota 2 
+                <input type="text" name="" id="txt_nota2p2">
+            </label>
+            <label>
+                Nota 3 
+                <input type="text" id="txt_nota3p2">
+    
+            </label>
+           
+        </form>
+        <h5 class="eventos">Promedio del segundo parcial es: </h5>
+        <p id="res2p"></p>
+        
+        <h2 class="eventos">Ingrese su nota del Examen Final</h2>
+        <form action="">
+            <label>
+              Nota Examen 
+                <input type="text" name="" id="txt_examen">
+            </label>
+  <p>
+    <button type="submit"  id="enviar"> Calcular su promedio final </button>      
+</p>
+    <h2 class="eventos">Su Promedio final es </h2>
+    <p id="res3p"></p>
+
+    <p id="mensaje"></p>
+ 
+
+   
+   <script>
+    const nota1 =  document.querySelector("#txt_nota1");
+    const nota2 =  document.querySelector("#txt_nota2");
+    const nota3 =  document.querySelector("#txt_nota3");
+    const nota1p2 =  document.querySelector("#txt_nota1p2");
+    const nota2p2 =  document.querySelector("#txt_nota2p2");
+    const nota3p2 =  document.querySelector("#txt_nota3p2");
+    const examen =  document.querySelector("#txt_examen");
+
+
+    const enviar = document.getElementById("enviar");
+    const resultado = document.getElementById("res1p");
+    const resultado2 = document.getElementById("res2p");
+    const resultado3 = document.getElementById("res3p");
+    // let resultado4 = document.getElementById("mensaje");
+
+    enviar.addEventListener('click', (e) => {
+        e.preventDefault();
+        const res1p = ((parseFloat(nota1.value) + parseFloat(nota2.value) + parseFloat(nota3.value) ) / 3);
+        const res2p = ((parseFloat(nota1p2.value) + parseFloat(nota2p2.value) + parseFloat(nota3p2.value)) / 3);
+        const exa = parseFloat(examen.value);
+        // let mensaje2 = parseFloat(mensaje);
+        // const res3p = (parseFloat(res1p.value) + parseFloat(res2p.value) + parseFloat(examen.value));
+        const res3p = ( res1p + res2p + exa ) / 3;
+
+        resultado.innerHTML = res1p;
+        resultado2.innerHTML = res2p;
+        resultado3.innerHTML = res3p;
+        // resultado4.innerHTML = mensaje2;
+        let mensaje = "";
+                if (resp3 >= 9.5) {
+                mensaje = "Exonerado";
+            } else if (resp3 >= 7) {
+                mensaje = "Aprobado";
+            } else if (resp3 >= 4) {
+                mensaje = "Supletorio";
+            } else {
+                mensaje = "Reprobado";
+            }
+
+        
+    });
+
+
+  
+    
+   </script> 
+    
+</body>
+</html>
