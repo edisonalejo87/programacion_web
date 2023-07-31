@@ -1,0 +1,42 @@
+const express = require('express');
+//Iniciando app
+const app = express();
+
+// traer datos por parametros
+app.get('/home', function(req, res){ 
+
+    const num1 = req.query.num1
+    // const num2 = req.query.num2
+    // const num3 = req.query.num2
+    // res.send(id);//referencia al parametro id que debe ser el mismo nombre
+    
+    if (num1 <= 1) {
+        return false;
+        console.log("no es primo")
+        }
+        // Comprobamos si el número es divisible por algún número menor que él mismo
+        for (let i = 2; i < num1; i++) {
+        if (num1 % i === 0) {
+        return false;
+        console.log("no es proimo")
+        } else
+        console.log("es primo")
+        } // Si no ha sido divisible por ningún número, es primo return true;
+        
+
+
+
+
+    
+    res.json({
+        num1
+    })
+    
+})
+
+
+//Escucha puerto
+app.listen(3000, function(){ 
+    console.log("Escuchando puerto 3000");
+
+});
