@@ -1,35 +1,41 @@
 const express = require('express');
+
 const app = express();
+const {Date} = require ('./src/service/Date');
+const {Usuarios} = require ('./src/service/usuarios');
 
-function esPrimo(numero) {
-  if (numero <= 1) {
-    return false;
-  }
+app.use(express.json());
 
-  for (let i = 2; i <= Math.sqrt(numero); i++) {
-    if (numero % i === 0) {
-      return false;
-    }
-  }
 
-  return true;
-}
+app.get('/home', function(req, res) {
+  
+  try{
+    const date3 = new Date(2023,-5,10)
+    res.json({ 
+    fecha: date3.Print()}
+    );
+  }catch(error){
+      res.json({
+        m: error.message
+      })
+  } 
+   }) 
 
-app.get('/esprimo/:numero', (req, res) => {
-  const numero = parseInt(req.params.numero);
-
-  if (isNaN(numero)) {
-    return res.status(400).json({ error: 'El parámetro proporcionado no es un número válido.' });
-  }
-
-  if (esPrimo(numero)) {
-    return res.json({ numero, esPrimo: true });
-  } else {
-    return res.json({ numero, esPrimo: false });
-  }
+app.get('/user', async (req, res) => {
+  const users = new Usuarios();
+  const newUser = await users.find();
+  res.json({
+    res: newUser
+  });
 });
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`);
-});
+
+
+app.get('/nosotros',function(req,res){ //especificamos las rutas 
+  res.send("Aqui esta nosotros");
+})
+//escuchando el puerto
+
+app.listen(3000, function () {
+  console.log("escuchando en el puerto 3000") 
+})
